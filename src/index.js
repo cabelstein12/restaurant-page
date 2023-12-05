@@ -7,36 +7,36 @@ import createHomeTab from './home';
 function component(){
     const contentDiv = document.getElementById("content");
 
-    function switchToContact(){
-        contentDiv.innerHTML = '';
-        const contactTab = createContactTab();
-        contentDiv.appendChild(contactTab);
-    }
-
-    function switchToMenu(){
-        contentDiv.innerHTML = '';
-        const menuTab = createMenuTab();
-        contentDiv.appendChild(menuTab);
-    }
 
     function switchToHome(){
         contentDiv.innerHTML = '';
         const homeTab = createHomeTab()
         contentDiv.appendChild(homeTab);
     }
-
+    function switchToMenu(){
+        contentDiv.innerHTML = '';
+        const menuTab = createMenuTab();
+        contentDiv.appendChild(menuTab);
+    }
+    function switchToContact(){
+        contentDiv.innerHTML = '';
+        const contactTab = createContactTab();
+        contentDiv.appendChild(contactTab);
+    }
+    
     const homeTabElement = document.getElementById('home-tab');
-    const contactTabElement = document.getElementById('contact-tab');
     const menuTabElement = document.getElementById('menu-tab');
+    const contactTabElement = document.getElementById('contact-tab');
 
     homeTabElement.addEventListener('click', switchToHome)
-    contactTabElement.addEventListener('click', switchToContact);
     menuTabElement.addEventListener('click', switchToMenu);
+    contactTabElement.addEventListener('click', switchToContact);
 
     // const image = new Image();
     // image.src = Icon;
 
     // content.appendChild(image);
+    switchToHome();
 
     return contentDiv;
 }
