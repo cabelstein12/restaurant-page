@@ -1,25 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,100&display=swap');
+
+@keyframes fadeInAnimation {
+    0% {
+        transform: translateY(-1em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
 body{
+    background-color: rgba(245, 219, 180, 0.444);
     margin: 0;
-    padding: 0;
-    height: 100vh;
+    /* height: 99vh; */
     width: 100vw;
+    /* overflow: hidden; */
     background: url('./paul-griffin-WWST6E8LxeE-unsplash.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+body > * {
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+#tabs {
+    /* margin: 10px; */
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.727) 10%, rgba(255, 255, 255, 0) 100%);
+    
+}
+
+#tabs button {
+    width: 25vw;
+    color: white;
+    background-color: transparent;
+    border: transparent;
+    /* border-top: transparent; */
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: larger;
+    
 }
 
 #content{
-    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    width: 75vw;
     height: 100vh;
+    border: 1px solid rgba(250, 128, 114, 0.932);
+    background: linear-gradient(0deg, rgba(106, 52, 52, 0.535) 50%, rgba(0, 0, 0, 0) 100%);
+    display: grid;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    /* font-weight: 100; */
+}
 
+.fadeInAnimation{
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 #content > * {
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
 }
 
 .head-elements{
     margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 5px double;
+    text-align: center;
+    color: inherit;
+
+}
+
+img {
+    border-radius: 15px;
+}
+
+.img-bar {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }

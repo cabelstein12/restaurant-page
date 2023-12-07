@@ -1,5 +1,4 @@
 import './style.css';
-import Icon from './paul-griffin-WWST6E8LxeE-unsplash.jpg';
 import createContactTab from './contact';
 import createMenuTab from './menu';
 import createHomeTab from './home';
@@ -7,40 +6,56 @@ import createHomeTab from './home';
 function component(){
     const contentDiv = document.getElementById("content");
 
+    function addTabContent(tabName) {
+        contentDiv.innerHTML = '';
+        contentDiv.appendChild(tabName);
+    }
 
     function switchToHome(){
-        contentDiv.innerHTML = '';
         const homeTab = createHomeTab()
-        contentDiv.appendChild(homeTab);
+        addTabContent(homeTab);
     }
     function switchToMenu(){
-        contentDiv.innerHTML = '';
         const menuTab = createMenuTab();
-        contentDiv.appendChild(menuTab);
+        addTabContent(menuTab);
     }
     function switchToContact(){
-        contentDiv.innerHTML = '';
         const contactTab = createContactTab();
-        contentDiv.appendChild(contactTab);
+        addTabContent(contactTab);
+    }
+
+    function addFadeInAnimation(){
+        const contentChild = document.querySelector('.page-info');
+        contentChild.classList.add('fadeInAnimation');
+        const duration = 2000;
+        setTimeout(()=> {
+        contentChild.classList.remove('fadeInAnimation');
+        }, duration)
+    }
+
+    function switchToTab(tabFunction){
+        contentDiv.innerHTML = '';
+        const tab = tabFunction;
+        contentDiv.appendChild(tab);
+        addFadeInAnimation();
     }
     
     const homeTabElement = document.getElementById('home-tab');
     const menuTabElement = document.getElementById('menu-tab');
     const contactTabElement = document.getElementById('contact-tab');
 
-    homeTabElement.addEventListener('click', switchToHome)
+    homeTabElement.addEventListener('click', switchToHome);
     menuTabElement.addEventListener('click', switchToMenu);
     contactTabElement.addEventListener('click', switchToContact);
 
-    // const image = new Image();
-    // image.src = Icon;
+    homeTabElement.addEventListener('click', addFadeInAnimation);
+    menuTabElement.addEventListener('click', addFadeInAnimation);
+    contactTabElement.addEventListener('click', addFadeInAnimation);
 
-    // content.appendChild(image);
+
     switchToHome();
 
     return contentDiv;
 }
 
 document.body.appendChild(component());
-
-console.log('out');
